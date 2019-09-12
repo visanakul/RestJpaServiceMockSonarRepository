@@ -1,0 +1,29 @@
+server:
+  port: 8085
+spring:
+  output:
+    ansi:
+      enabled: always
+#drop and create table and sequence
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+#Oracle db configuration
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    username: system
+    password: sys
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+#HikariCP configuration
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 60000
+#Logging
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%t] %-6level %logger{36} - %msg%n"
+  level: 
+    root: error
+    org:
+      hibernate: error 
+    
