@@ -31,7 +31,7 @@ import com.rest.exception.EmployeePersistException;
 import com.rest.model.EmployeeModel;
 import com.rest.repository.IEmployeeRepository;
 import com.rest.service.EmployeeServiceImpl;
-import com.rest.service.IEmployeeSerice;
+import com.rest.service.IEmployeeService;
 
 /**
  * 
@@ -43,7 +43,7 @@ import com.rest.service.IEmployeeSerice;
 public class EmployeeServiceTest {
 
 	@InjectMocks
-	private IEmployeeSerice empService = new EmployeeServiceImpl();
+	private IEmployeeService empService = new EmployeeServiceImpl();
 	@Mock
 	private IEmployeeRepository empRepository;
 

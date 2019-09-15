@@ -6,7 +6,7 @@ import java.util.List;
  */
 import com.rest.model.EmployeeModel;
 
-public interface IEmployeeSerice {
+public interface IEmployeeService {
 	/**
 	 * Find all employee
 	 * 

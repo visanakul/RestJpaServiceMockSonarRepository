@@ -21,7 +21,7 @@ import com.rest.repository.IEmployeeRepository;
  * @author VISHAL Employee service
  */
 @Service
-public class EmployeeServiceImpl implements IEmployeeSerice {
+public class EmployeeServiceImpl implements IEmployeeService {
 
 	/**
 	 * SL4J Logger
