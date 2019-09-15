@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -106,6 +108,33 @@ public class EmployeeRepositoryTest {
 		assertNotNull(mockedEmpList.get(0));
 		assertEquals(1, mockedEmpList.get(0).getId().intValue());
 		assertNull(mockedEmpList.get(100));
+	}
+
+	@Test
+	public void test6UpdateEmployee() {
+		EmployeeEntity entityToUpdate = new EmployeeEntity();
+		entityToUpdate.setId(1);
+		entityToUpdate.setName("emp1New");
+		entityToUpdate.setSalary(5_00_000D);
+
+		EmployeeEntity entityUpdated = new EmployeeEntity();
+		entityUpdated.setId(1);
+		entityUpdated.setName("emp1New");
+		entityUpdated.setSalary(5_00_000D);
+
+		when(empRepository.save(entityToUpdate)).thenReturn(entityUpdated);
+
+		EmployeeEntity updated = empRepository.save(entityToUpdate);
+		assertNotNull(updated);
+		assertEquals(entityToUpdate.getId(), updated.getId());
+		assertEquals(entityToUpdate.getName(), updated.getName());
+		assertEquals(entityToUpdate.getSalary(), updated.getSalary());
+	}
+
+	@Test
+	public void test7DeleteEmployee() {
+		empRepository.deleteById(1);
+		verify(empRepository, times(1)).deleteById(1);
 	}
 
 }
